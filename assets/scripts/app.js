@@ -113,7 +113,7 @@ CalcBtn.addEventListener("click", () => {
 
 clearBtn.addEventListener("click", () => {
   input.value = 0;
-  clearNumbers(calcResult);
+  clearNumbers(0);
   if (clearBtn.classList.contains("error-color")) {
     clearBtn.classList.remove("error-color");
   }

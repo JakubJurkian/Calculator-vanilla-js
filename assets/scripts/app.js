@@ -4,10 +4,8 @@ const input = document.querySelector("#field");
 const CalcBtn = document.querySelector(".calculate-btn");
 const clearBtn = document.querySelector(".clear-btn");
 
-let firstNum = 0;
-let secondNum = 0;
-let typedNum1 = "";
-let typedNum2 = "";
+let firstNum = 0, secondNum = 0;
+let typedNum1 = "", typedNum2 = "";
 let operator, colorSign, calcResult;
 
 function numberClickedHandler(el) {
@@ -39,7 +37,6 @@ function operatorClickedHandler(el) {
   // console.log(`operator - ${operator}`);
   el.classList.add("sign-color");
   colorSign = el;
-  //   CalcBtn.disabled = false;
 }
 
 function add(n1, n2) {
@@ -91,18 +88,17 @@ for (const el of listOfSigns) {
 }
 
 CalcBtn.addEventListener("click", () => {
+  if(!operator) {
+    return;
+  }
   if (secondNum === undefined || secondNum === NaN) {
     return;
   }
   if (secondNum == 0 && operator == "/") {
     input.value = result(firstNum, secondNum, operator);
-    // calcResult = result(firstNum, secondNum, operator);
     clearBtn.classList.add("error-color");
-    clearNumbers(0);
     CalcBtn.disabled = true;
-    return;
-  }
-  if(!operator) {
+    clearNumbers(0);
     return;
   }
   input.value = Number(result(firstNum, secondNum, operator));

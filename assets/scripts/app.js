@@ -33,6 +33,9 @@ function operatorClickedHandler(el) {
   if (operator) {
     return;
   }
+  if (clearBtn.classList.contains("error-color")) {
+    clearBtn.classList.remove("error-color");
+  }
   operator = el.textContent;
   // console.log(`operator - ${operator}`);
   el.classList.add("sign-color");

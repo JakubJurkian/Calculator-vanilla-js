@@ -118,7 +118,7 @@ input, button, .number, .sign {
     width: 487px;
   }
   input {
-    font-size: 3.5rem;
+    /* font-size: 4rem; */
     height: 150px;
   }
   .number,

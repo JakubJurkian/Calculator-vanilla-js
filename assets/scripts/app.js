@@ -53,7 +53,7 @@ function power(n1, n2) {
 }
 function divide(n1, n2) {
   if (n2 == 0) {
-    return "Do not devide by 0!";
+    return "Error";
   }
   return (n1 / n2).toFixed(2);
 }

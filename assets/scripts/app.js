@@ -5,15 +5,15 @@ const CalcBtn = document.querySelector(".calculate-btn");
 const clearBtn = document.querySelector(".clear-btn");
 
 let firstNum = 0, secondNum = 0;
-let typedNum1 = "", typedNum2 = "";
+let typedFirstNum = "", typedSecondNum = "";
 let operator, colorSign, calcResult;
 
 function numberClickedHandler(el) {
   if (operator) {
     colorSign.classList.remove("sign-color");
-    typedNum2 += el.textContent;
-    input.value = typedNum2;
-    secondNum = parseInt(typedNum2);
+    typedSecondNum += el.textContent;
+    input.value = typedSecondNum;
+    secondNum = parseInt(typedSecondNum);
     // console.log(`sec num - ${secondNum}`);
     CalcBtn.disabled = false;
     return;
@@ -22,52 +22,47 @@ function numberClickedHandler(el) {
   if (clearBtn.classList.contains("error-color")) {
     clearBtn.classList.remove("error-color");
   }
-  typedNum1 += el.textContent;
-  input.value = typedNum1;
-  firstNum = parseInt(typedNum1);
+
+  typedFirstNum += el.textContent;
+  input.value = typedFirstNum;
+  firstNum = parseInt(typedFirstNum);
   // console.log(`first num - ${firstNum}`);
   CalcBtn.disabled = true;
 }
 
 function operatorClickedHandler(el) {
-  if (operator) {
+  if (operator === el.textContent) {
+    colorSign.classList.remove("sign-color");
+    operator = null;
     return;
   }
+  
+  if (operator) return;
+
   if (clearBtn.classList.contains("error-color")) {
     clearBtn.classList.remove("error-color");
   }
+  
   operator = el.textContent;
   // console.log(`operator - ${operator}`);
   el.classList.add("sign-color");
   colorSign = el;
 }
 
-function add(n1, n2) {
-  return (n1 + n2).toFixed(2);
-}
-function subst(n1, n2) {
-  return (n1 - n2).toFixed(2);
-}
-function power(n1, n2) {
-  return (n1 * n2).toFixed(2);
-}
-function divide(n1, n2) {
-  if (n2 == 0) {
-    return "Error";
-  }
+const add = (n1, n2) => (n1 + n2).toFixed(2);
+const subst = (n1, n2) => (n1 - n2).toFixed(2);
+const power = (n1, n2) => (n1 * n2).toFixed(2);
+const divide = (n1, n2) => {
+  if (n2 == 0) return "Error";
   return (n1 / n2).toFixed(2);
 }
 
 function result(n1, n2, operator) {
   switch (operator) {
-    case "+":
-      return add(n1, n2);
-    case "-":
-      return subst(n1, n2);
-    case "*":
-      return power(n1, n2);
-    case "/":
-      return divide(n1, n2);
+    case "+": return add(n1, n2);
+    case "-": return subst(n1, n2);
+    case "*": return power(n1, n2);
+    case "/": return divide(n1, n2);
   }
 }
 
@@ -75,8 +70,8 @@ function clearNumbers(calcResult = 0) {
   firstNum = calcResult;
   secondNum = 0;
   operator = null;
-  typedNum1 = "";
-  typedNum2 = "";
+  typedFirstNum = "";
+  typedSecondNum = "";
   if (colorSign) {
     colorSign.classList.remove("sign-color");
   }
@@ -91,12 +86,10 @@ for (const el of listOfSigns) {
 }
 
 CalcBtn.addEventListener("click", () => {
-  if(!operator) {
-    return;
-  }
-  if (secondNum === undefined || secondNum === NaN) {
-    return;
-  }
+  if(!operator) return;
+
+  if (secondNum === undefined || secondNum === NaN) return;
+
   if (secondNum == 0 && operator == "/") {
     input.value = result(firstNum, secondNum, operator);
     clearBtn.classList.add("error-color");
@@ -104,6 +97,11 @@ CalcBtn.addEventListener("click", () => {
     clearNumbers(0);
     return;
   }
+
+  if (Number(result(firstNum, secondNum, operator)).toString().length > 17) {
+    input.classList.add('input-big-numbers');
+  }
+
   input.value = Number(result(firstNum, secondNum, operator));
   calcResult = Number(result(firstNum, secondNum, operator));
   clearNumbers(calcResult);
@@ -115,5 +113,8 @@ clearBtn.addEventListener("click", () => {
   clearNumbers(0);
   if (clearBtn.classList.contains("error-color")) {
     clearBtn.classList.remove("error-color");
+  }
+  if (input.classList.contains('input-big-numbers')) {
+    input.classList.remove('input-big-numbers');
   }
 });

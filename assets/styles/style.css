@@ -36,8 +36,8 @@ input {
 }
 
 input[disabled] {
-  background-color: white;
-  color: rgba(0, 0, 0, 0.7);
+  background-color: white !important;
+  color: rgba(0, 0, 0, 0.7) !important;
 }
 
 .buttons {
@@ -203,21 +203,21 @@ button,
 @media (max-width: 410px) {
   .container {
     margin-top: 0.5rem;
-    height: 825px;
+    height: 750px;
     width: 340px;
   }
   input {
-    font-size: 3.3rem;
+    font-size: 2.8rem;
   }
   .number,
   .sign {
     width: 94px;
-    height: 80px;
-    font-size: 2.7rem;
+    height: 65px;
+    font-size: 2.1rem;
   }
   .calculate-btn,
   .clear-btn {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     width: 100%;
     margin: 6px 0 0 0;
   }

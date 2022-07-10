@@ -172,7 +172,7 @@ button,
 
 @media (max-width: 495px) {
   .container {
-    margin-top: 5rem;
+    margin-top: 0.5rem;
     height: 750px;
     width: 400px;
   }
@@ -201,7 +201,7 @@ button,
 
 @media (max-width: 410px) {
   .container {
-    margin-top: 4rem;
+    margin-top: 0.5rem;
     height: 825px;
     width: 340px;
   }

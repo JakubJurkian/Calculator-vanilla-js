@@ -103,7 +103,7 @@ calcBtn.addEventListener("click", () => {
     return;
   }
   
-  if (Number(result(firstNum, secondNum, operator)).toString().length > 15) {
+  if (Number(result(firstNum, secondNum, operator)).toString().length > 13) {
     input.classList.add('input-big-numbers');
   }
 

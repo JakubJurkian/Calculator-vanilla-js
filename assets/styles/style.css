@@ -23,7 +23,6 @@
 }
 
 input {
-  line-height: 2;
   border-radius: 16px;
   font-size: 4.3rem;
   text-align: center;
@@ -203,11 +202,12 @@ button,
 @media (max-width: 410px) {
   .container {
     margin-top: 0.5rem;
-    height: 750px;
+    height: 630px;
     width: 340px;
   }
   input {
     font-size: 2.8rem;
+    height: 110px;
   }
   .number,
   .sign {
@@ -217,12 +217,13 @@ button,
   }
   .calculate-btn,
   .clear-btn {
-    font-size: 1.6rem;
-    width: 100%;
+    font-size: 1.5rem;
+    display: inline-block;
     margin: 6px 0 0 0;
+    padding: 28px;
   }
   .input-big-numbers {
-    font-size: 26px;
+    font-size: 28px;
   }
 }
 

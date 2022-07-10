@@ -217,10 +217,10 @@ button,
   }
   .calculate-btn,
   .clear-btn {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     display: inline-block;
     margin: 6px 0 0 6px;
-    padding: 28px;
+    padding: 26px;
   }
   .input-big-numbers {
     font-size: 28px;

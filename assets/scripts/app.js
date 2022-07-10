@@ -1,7 +1,7 @@
 const listOfNums = document.querySelectorAll(".number");
 const listOfSigns = document.querySelectorAll(".sign");
 const input = document.querySelector("#field");
-const CalcBtn = document.querySelector(".calculate-btn");
+const calcBtn = document.querySelector(".calculate-btn");
 const clearBtn = document.querySelector(".clear-btn");
 
 let firstNum = 0, secondNum = 0;
@@ -15,7 +15,7 @@ function numberClickedHandler(el) {
     input.value = typedSecondNum;
     secondNum = parseInt(typedSecondNum);
     // console.log(`sec num - ${secondNum}`);
-    CalcBtn.disabled = false;
+    calcBtn.disabled = false;
     return;
   }
 
@@ -27,11 +27,15 @@ function numberClickedHandler(el) {
   input.value = typedFirstNum;
   firstNum = parseInt(typedFirstNum);
   // console.log(`first num - ${firstNum}`);
-  CalcBtn.disabled = true;
+  calcBtn.disabled = true;
+
+  if (firstNum.toString().length < 15) {
+    input.classList.remove('input-big-numbers');
+  }
 }
 
 function operatorClickedHandler(el) {
-  if (operator === el.textContent) {
+  if (operator === el.textContent && !secondNum) {
     colorSign.classList.remove("sign-color");
     operator = null;
     return;
@@ -72,6 +76,7 @@ function clearNumbers(calcResult = 0) {
   operator = null;
   typedFirstNum = "";
   typedSecondNum = "";
+  calcBtn.disabled = true;
   if (colorSign) {
     colorSign.classList.remove("sign-color");
   }
@@ -85,27 +90,27 @@ for (const el of listOfSigns) {
   el.addEventListener("click", operatorClickedHandler.bind(null, el));
 }
 
-CalcBtn.addEventListener("click", () => {
-  if(!operator) return;
+calcBtn.addEventListener("click", () => {
+  // if (secondNum === undefined || secondNum === NaN) return;
 
-  if (secondNum === undefined || secondNum === NaN) return;
+  if(!operator) return;
 
   if (secondNum == 0 && operator == "/") {
     input.value = result(firstNum, secondNum, operator);
     clearBtn.classList.add("error-color");
-    CalcBtn.disabled = true;
+    calcBtn.disabled = true;
     clearNumbers(0);
     return;
   }
-
-  if (Number(result(firstNum, secondNum, operator)).toString().length > 17) {
+  
+  if (Number(result(firstNum, secondNum, operator)).toString().length > 15) {
     input.classList.add('input-big-numbers');
   }
 
   input.value = Number(result(firstNum, secondNum, operator));
   calcResult = Number(result(firstNum, secondNum, operator));
   clearNumbers(calcResult);
-  CalcBtn.disabled = true;
+  calcBtn.disabled = true;
 });
 
 clearBtn.addEventListener("click", () => {

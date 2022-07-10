@@ -37,6 +37,7 @@ input {
 
 input[disabled] {
   background-color: white;
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .buttons {

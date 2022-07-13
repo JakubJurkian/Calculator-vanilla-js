@@ -36,9 +36,8 @@ function numberClickedHandler(el) {
 
 function operatorClickedHandler(el) {
   if (operator === el.textContent && !secondNum) {
-    if (secondNum === 0) {
-      return;
-    }
+    if (secondNum === 0) return;
+
     colorSign.classList.remove("sign-color");
     operator = null;
     return;
@@ -94,8 +93,6 @@ for (const el of listOfSigns) {
 }
 
 calcBtn.addEventListener("click", () => {
-  // if (secondNum === undefined || secondNum === NaN) return;
-
   if(!operator) return;
 
   if (secondNum == 0 && operator == "/") {

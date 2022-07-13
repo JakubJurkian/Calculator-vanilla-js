@@ -4,7 +4,7 @@ const input = document.querySelector("#field");
 const calcBtn = document.querySelector(".calculate-btn");
 const clearBtn = document.querySelector(".clear-btn");
 
-let firstNum = 0, secondNum = 0;
+let firstNum = 0, secondNum = null;
 let typedFirstNum = "", typedSecondNum = "";
 let operator, colorSign, calcResult;
 
@@ -36,6 +36,9 @@ function numberClickedHandler(el) {
 
 function operatorClickedHandler(el) {
   if (operator === el.textContent && !secondNum) {
+    if (secondNum === 0) {
+      return;
+    }
     colorSign.classList.remove("sign-color");
     operator = null;
     return;
@@ -72,7 +75,7 @@ function result(n1, n2, operator) {
 
 function clearNumbers(calcResult = 0) {
   firstNum = calcResult;
-  secondNum = 0;
+  secondNum = null;
   operator = null;
   typedFirstNum = "";
   typedSecondNum = "";

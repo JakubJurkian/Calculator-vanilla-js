@@ -25,8 +25,8 @@
 }
 
 input {
-  font-size: 2.8rem;
-  height: 110px;
+  font-size: 2.5rem;
+  height: 95px;
   border-radius: 16px;
   text-align: center;
   display: inline-block;
@@ -144,7 +144,7 @@ button,
 }
 
 .input-big-numbers {
-  font-size: 34px;
+  font-size: 25px;
 }
 
 @keyframes press {
@@ -158,6 +158,15 @@ button,
     transform: scale(1);
   }
 }
+@media (min-width: 390px) {
+  input {
+    font-size: 2.8rem;
+    height: 110px;
+  }
+  .input-big-numbers {
+    font-size: 32px;
+  }
+}
 
 @media (min-width: 496px) {
   .container {
@@ -167,7 +176,7 @@ button,
   }
   input {
     height: 130px;
-    font-size: 52px;
+    font-size: 62px;
   }
   .number,
   .sign {
@@ -184,7 +193,7 @@ button,
     font-size: 2rem;
   }
   .input-big-numbers {
-    font-size: 34px;
+    font-size: 40px;
   }
 }
 
@@ -196,7 +205,7 @@ button,
   }
   input {
     height: 150px;
-    font-size: 55px;
+    font-size: 64px;
   }
   .number,
   .sign {
@@ -219,7 +228,7 @@ button,
     width: 30%;
   }
   .input-big-numbers {
-    font-size: 40px;
+    font-size: 48px;
   }
 }
 
@@ -230,7 +239,7 @@ button,
     width: 650px;
   }
   input {
-    font-size: 4rem;
+    font-size: 68px;
     height: 155px;
   }
   .number,

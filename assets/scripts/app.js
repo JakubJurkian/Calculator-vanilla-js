@@ -37,7 +37,6 @@ function numberClickedHandler(el) {
 function operatorClickedHandler(el) {
   if (operator === el.textContent && !secondNum) {
     if (secondNum === 0) return;
-
     colorSign.classList.remove("sign-color");
     operator = null;
     return;

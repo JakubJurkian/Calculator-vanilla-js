@@ -221,7 +221,7 @@ button,
   .calculate-btn,
   .clear-btn {
     padding: 24px;
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin-top: 10px;
   }
   .calculate-btn {
@@ -238,7 +238,7 @@ button,
 @media (min-width: 1024px) {
   .container {
     width: 650px;
-    height: 614px;
+    height: 606px;
   }
   input {
     height: 154px;
@@ -252,7 +252,7 @@ button,
   }
   .calculate-btn,
   .clear-btn {
-    padding: 34px;
+    padding: 30px;
     font-size: 1.8rem;
   }
   .input-big-numbers {

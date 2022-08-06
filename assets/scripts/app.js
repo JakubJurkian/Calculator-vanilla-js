@@ -12,7 +12,8 @@ function numberClickedHandler(el) {
   if (operator) {
     colorSign.classList.remove("sign-color");
     typedSecondNum += el.textContent;
-    input.value = typedSecondNum;
+    const typedSecondNumWithSpaces = numberWithSpaces(typedSecondNum);
+    input.value = typedSecondNumWithSpaces;
     secondNum = parseInt(typedSecondNum);
     // console.log(`sec num - ${secondNum}`);
     calcBtn.disabled = false;
@@ -24,7 +25,8 @@ function numberClickedHandler(el) {
   }
 
   typedFirstNum += el.textContent;
-  input.value = typedFirstNum;
+  const typedFirstNumWithSpaces = numberWithSpaces(typedFirstNum);
+  input.value = typedFirstNumWithSpaces;
   firstNum = parseInt(typedFirstNum);
   // console.log(`first num - ${firstNum}`);
   calcBtn.disabled = true;
@@ -91,6 +93,12 @@ for (const el of listOfSigns) {
   el.addEventListener("click", operatorClickedHandler.bind(null, el));
 }
 
+function numberWithSpaces(x) {
+  var parts = x.toString().split(".");
+  parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+  return parts.join(".");
+}
+
 calcBtn.addEventListener("click", () => {
   if(!operator) return;
 
@@ -106,7 +114,7 @@ calcBtn.addEventListener("click", () => {
     input.classList.add('input-big-numbers');
   }
 
-  input.value = Number(result(firstNum, secondNum, operator));
+  input.value = numberWithSpaces(Number(result(firstNum, secondNum, operator)));
   calcResult = Number(result(firstNum, secondNum, operator));
   clearNumbers(calcResult);
   calcBtn.disabled = true;

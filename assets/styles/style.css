@@ -7,12 +7,11 @@
   font-weight: 700;
   user-select: none;
   box-sizing: border-box;
-  font-family: "Courier New", Courier, monospace;
 }
 
 .container {
   width: 95%;
-  height: 600px;
+  height: 594px;
   padding: 16px;
   min-width: 320px;
   max-width: 410px;
@@ -24,10 +23,10 @@
   margin-top: 0.5rem;
 }
 
-input {
+.input-result {
   width: 100%;
   height: 96px;
-  font-size: 2.5rem;
+  font-size: 38px;
   border-radius: 16px;
   margin-bottom: 1rem;
   font-family: "Anton", sans-serif;
@@ -36,7 +35,7 @@ input {
   border: none;
 }
 
-input[disabled] {
+.input-result[disabled] {
   background-color: white;
   color: rgba(0, 0, 0, 0.7);
 }
@@ -47,13 +46,13 @@ input[disabled] {
 
 .calculate-btn,
 .clear-btn {
-  margin: 0 8px;
   padding: 30px;
   font-size: 1.4rem;
   border-radius: 20px;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.7);
   font-family: "Rubik", sans-serif;
   background-color: white;
+  transition: all 0.2s;
   cursor: pointer;
   border: none;
 }
@@ -68,7 +67,7 @@ input[disabled] {
 
 .calculate-btn:hover,
 .clear-btn:hover {
-  background-color: rgb(152, 114, 44);
+  background-color: rgba(152, 114, 44);
   color: white;
 }
 
@@ -88,14 +87,15 @@ input[disabled] {
 .number,
 .sign {
   width: 30%;
-  height: 66px;
-  font-size: 2.6rem;
-  margin: 2px 0 4px 0;
+  height: 64px;
+  font-size: 2.5rem;
+  margin: 2px 2px 4px 2px;
   border-radius: 10px;
   color: rgb(250, 250, 250);
   background-color: rgb(206, 181, 115);
   font-family: "Anton", sans-serif;
   display: inline-block;
+  transition: all 0.2s;
   text-align: center;
   cursor: pointer;
 }
@@ -121,8 +121,8 @@ input[disabled] {
   animation: press 0.2s 1 linear;
 }
 
-input,
 button,
+.input-result,
 .number,
 .sign {
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
@@ -144,7 +144,7 @@ button,
 }
 
 .input-big-numbers {
-  font-size: 25px;
+  font-size: 24px;
 }
 
 @keyframes press {
@@ -158,26 +158,32 @@ button,
     transform: scale(1);
   }
 }
+
 @media (min-width: 390px) {
   .container {
     height: 616px;
   }
-  input {
+  .input-result {
     height: 110px;
-    font-size: 2.8rem;
+    font-size: 48px;
+  }
+  .sign,
+  .number {
+    height: 66px;
+    font-size: 2.6rem;
   }
   .input-big-numbers {
-    font-size: 32px;
+    font-size: 28px;
   }
 }
 
 @media (min-width: 496px) {
   .container {
     width: 480px;
-    height: 724px;
+    height: 728px;
     max-width: none;
   }
-  input {
+  .input-result {
     height: 130px;
     font-size: 60px;
   }
@@ -185,7 +191,7 @@ button,
   .sign {
     width: 140px;
     height: 80px;
-    margin-left: 0;
+    margin: 4px 2px 4px 4px;
     padding-top: 8px;
     font-size: 2.8rem;
   }
@@ -196,7 +202,7 @@ button,
     margin-top: 6px;
   }
   .input-big-numbers {
-    font-size: 40px;
+    font-size: 38px;
   }
 }
 
@@ -206,17 +212,16 @@ button,
     height: 604px;
     margin-top: 3rem;
   }
-  input {
+  .input-result {
     height: 150px;
     font-size: 64px;
   }
   .number,
   .sign {
     width: 99px;
-    height: 90px;
-    margin-left: 0;
+    height: 86px;
     padding-top: 8px;
-    font-size: 2.9rem;
+    font-size: 3rem;
   }
   .calculate-btn,
   .clear-btn {
@@ -231,7 +236,7 @@ button,
     width: 30%;
   }
   .input-big-numbers {
-    font-size: 48px;
+    font-size: 46px;
   }
 }
 
@@ -240,7 +245,7 @@ button,
     width: 650px;
     height: 606px;
   }
-  input {
+  .input-result {
     height: 154px;
     font-size: 68px;
   }
@@ -256,6 +261,6 @@ button,
     font-size: 1.8rem;
   }
   .input-big-numbers {
-    font-size: 56px;
+    font-size: 52px;
   }
 }

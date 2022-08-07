@@ -52,7 +52,6 @@
   color: rgba(0, 0, 0, 0.7);
   font-family: "Rubik", sans-serif;
   background-color: white;
-  transition: all 0.2s;
   cursor: pointer;
   border: none;
 }
@@ -95,7 +94,6 @@
   background-color: rgb(206, 181, 115);
   font-family: "Anton", sans-serif;
   display: inline-block;
-  transition: all 0.2s;
   text-align: center;
   cursor: pointer;
 }
@@ -220,14 +218,16 @@ button,
   .sign {
     width: 99px;
     height: 86px;
-    padding-top: 8px;
     font-size: 3rem;
+    padding-top: 8px;
+    transition: all 0.2s;
   }
   .calculate-btn,
   .clear-btn {
     padding: 24px;
     font-size: 1.8rem;
     margin-top: 10px;
+    transition: all 0.2s;
   }
   .calculate-btn {
     width: 40%;

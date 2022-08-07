@@ -38,6 +38,9 @@
 .input-result[disabled] {
   background-color: white;
   color: rgba(0, 0, 0, 0.7);
+  /* -webkit-text-fill-color: rgba(0, 0, 0, 7);  */
+  -webkit-opacity: 1;
+  opacity: 1;
 }
 
 .buttons {

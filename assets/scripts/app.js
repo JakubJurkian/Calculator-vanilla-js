@@ -8,7 +8,7 @@ let firstNum = 0, secondNum = null;
 let typedFirstNum = "", typedSecondNum = "";
 let operator, colorSign, calcResult;
 
-function numberClickedHandler(el) {
+function numClickedHandler(el) {
   if (operator) {
     colorSign.classList.remove("sign-color");
     typedSecondNum += el.textContent;
@@ -80,13 +80,11 @@ function clearNumbers(calcResult = 0) {
   typedFirstNum = "";
   typedSecondNum = "";
   calcBtn.disabled = true;
-  if (colorSign) {
-    colorSign.classList.remove("sign-color");
-  }
+  if (colorSign) colorSign.classList.remove("sign-color");
 }
 
 for (const el of listOfNums) {
-  el.addEventListener("click", numberClickedHandler.bind(null, el));
+  el.addEventListener("click", numClickedHandler.bind(null, el));
 }
 
 for (const el of listOfSigns) {
@@ -94,7 +92,7 @@ for (const el of listOfSigns) {
 }
 
 function numberWithSpaces(x) {
-  var parts = x.toString().split(".");
+  const parts = x.toString().split(".");
   parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, " ");
   return parts.join(".");
 }

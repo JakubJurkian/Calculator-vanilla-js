@@ -10,6 +10,9 @@ let operator, colorSign, calcResult;
 
 function numClickedHandler(el) {
   if (operator) {
+    if (input.classList.contains('input-big-numbers')) {
+      input.classList.remove('input-big-numbers');
+    }
     colorSign.classList.remove("sign-color");
     typedSecondNum += el.textContent;
     const typedSecondNumWithSpaces = numberWithSpaces(typedSecondNum);
@@ -101,6 +104,9 @@ calcBtn.addEventListener("click", () => {
   if(!operator) return;
 
   if (secondNum == 0 && operator == "/") {
+    if (input.classList.contains('input-big-numbers')) {
+      input.classList.remove('input-big-numbers');
+    }
     input.value = result(firstNum, secondNum, operator);
     clearBtn.classList.add("error-color");
     calcBtn.disabled = true;
